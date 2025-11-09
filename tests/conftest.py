@@ -9,7 +9,7 @@ def first_category() -> Category:
     return Category(
         name="Смартфоны",
         description="Смартфоны, как средство не только коммуникации, "
-                    "но и получения дополнительных функций для удобства жизни",
+        "но и получения дополнительных функций для удобства жизни",
         products=[
             Product(
                 name="Samsung Galaxy S23 Ultra",
@@ -28,7 +28,7 @@ def second_category():
     return Category(
         name="Телевизоры",
         description="Современный телевизор, который позволяет наслаждаться просмотром,"
-                    " станет вашим другом и помощником",
+        " станет вашим другом и помощником",
         products=[Product(name='55" QLED 4K', description="Фоновая подсветка", price=123000.0, quantity=7)],
     )
 
