@@ -5,14 +5,14 @@ class Product:
 
     name: str
     description: str
-    price: float
+    __price: float
     quantity: int
 
     def __init__(self, name, description, price, quantity) -> None:
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
 
     @classmethod
@@ -31,3 +31,11 @@ class Product:
             return cls(name, description, price, quantity)
         except (AssertionError, AttributeError, KeyError, ValueError):
             return None
+
+    @property
+    def price(self)->float:
+        """
+        Геттер для атрибута __price возвращает значение приватного атрибута цены
+        :return: значение приватного атрибута цены
+        """
+        return self.__price
