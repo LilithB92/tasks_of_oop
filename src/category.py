@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category:
     """
     Класс для представления категории электротоваров
@@ -13,6 +16,13 @@ class Category:
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
         self.name = name
         self.description = description
-        self.products = products if products else []
+        self.__products = products if products else []
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
+
+    def add_product(self, product: Product):
+        """Метод  добавляет продукт  в атрибут products
+        и увеличивает «счетчик продуктов» (атрибут product_count) на 1"""
+        self.__products.append(product)
+        self.product_count += 1
+
