@@ -9,20 +9,20 @@ class Category:
     name: str
     description: str
     __products: list
-    category_count: int = 0
     product_count: int = 0
+    category_count: int = 0
 
     def __init__(self, name, description, products=None) -> None:
         """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
         self.name = name
         self.description = description
         self.__products = products if products else []
+        self.product_count += len(self.__products) if products else 0
         Category.category_count += 1
-        Category.product_count += len(self.__products) if products else 0
 
     def add_product(self, product: Product) -> None:
         """
-        Метод  добавляет продукт  в атрибут products
+        Метод добавляет продукт в атрибут products
         и увеличивает «счетчик продуктов» (атрибут product_count) на 1
         :param product: экземпляра класса Product
         :return: не возвращает значения
