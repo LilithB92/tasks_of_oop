@@ -22,3 +22,17 @@ def test_new_product_invalid() -> None:
     product1 = Product.new_product({})
     with pytest.raises(AttributeError):
         assert product1.name
+
+
+def test_price_setter(product, mock_input_data) -> None:
+    assert product.price == 31000.0
+    product.price = 32000.0
+    assert product.price == 32000.0
+    product.price = 12
+    assert product.price == 12.0
+
+
+def test_invalid_negative_price(capsys, product):
+    product.price = -12
+    captured = capsys.readouterr()
+    assert captured.out == "«Цена не должна быть нулевая или отрицательная»\n"

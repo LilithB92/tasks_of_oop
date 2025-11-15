@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 import pytest
 
 from src.category import Category
@@ -56,3 +58,9 @@ def product_dict1() -> dict:
         "price": 180000.0,
         "quantity": 5,
     }
+
+
+@pytest.fixture
+def mock_input_data():
+    with patch("builtins.input", return_value="y"):
+        yield
