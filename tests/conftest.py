@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 import pytest
 
 from src.category import Category
@@ -36,3 +38,29 @@ def second_category():
 @pytest.fixture
 def product():
     return Product(name="Xiaomi Redmi Note 11", description="1024GB, Синий", price=31000.0, quantity=14)
+
+
+@pytest.fixture
+def product_dict() -> dict:
+    return {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 120000.0,
+        "quantity": 5,
+    }
+
+
+@pytest.fixture
+def product_dict1() -> dict:
+    return {
+        "name": "Poko",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5,
+    }
+
+
+@pytest.fixture
+def mock_input_data():
+    with patch("builtins.input", return_value="y"):
+        yield
