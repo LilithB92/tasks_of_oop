@@ -19,6 +19,13 @@ class Product:
         Product.products_list.append(self)
         Product.products_name_list.append(name)
 
+    def __str__(self):
+        """
+        Метод возвращает строку: Название продукта, X руб. Остаток: X шт
+        :return: строку: Название продукта, X руб. Остаток: X шт
+        """
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт \n"
+
     @classmethod
     def new_product(cls, product_dict: dict):
         """

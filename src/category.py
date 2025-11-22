@@ -20,6 +20,9 @@ class Category:
         self.product_count += len(self.__products) if products else 0
         Category.category_count += 1
 
+    def __str__(self):
+        pass
+
     def add_product(self, product: Product) -> None:
         """
         Метод добавляет продукт в атрибут products
@@ -38,5 +41,5 @@ class Category:
         """
         products_str = ""
         for product in self.__products:
-            products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            products_str += product.__str__()
         return products_str
