@@ -21,7 +21,13 @@ class Category:
         Category.category_count += 1
 
     def __str__(self):
-        pass
+        """
+        Метод рассчитывает общее количество товаров на складе (quantity) для каждого продукта
+        в приватном атрибуте products и возвращает строку: Название категории, количество продуктов: X шт.
+        :return: Строку: Название категории, количество продуктов: X шт.
+        """
+        products_count = sum([product.quantity for product in self.__products])
+        return f"{self.name}, количество продуктов: {products_count} шт.\n"
 
     def add_product(self, product: Product) -> None:
         """
