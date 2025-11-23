@@ -71,6 +71,7 @@ def mock_input_data():
     with patch("builtins.input", return_value="y"):
         yield
 
+
 @pytest.fixture
 def product_iterator(first_category):
     return ProductIterator(first_category)
