@@ -41,6 +41,11 @@ def product():
 
 
 @pytest.fixture
+def other_product_for_add():
+    return Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
+
+
+@pytest.fixture
 def product_dict() -> dict:
     return {
         "name": "Samsung Galaxy S23 Ultra",
