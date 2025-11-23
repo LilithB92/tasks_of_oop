@@ -3,7 +3,7 @@ from src.product import Product
 
 class Category:
     """
-    Класс для представления категории электротоваров
+    Класс для представления категории электро товаров
     """
 
     name: str
@@ -49,3 +49,11 @@ class Category:
         for product in self.__products:
             products_str += product.__str__()
         return products_str
+
+    @property
+    def product(self):
+        """
+        Метод возвращает список продуктов
+        :return: Список продуктов
+        """
+        return self.__products
