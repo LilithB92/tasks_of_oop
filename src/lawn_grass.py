@@ -24,3 +24,16 @@ class LawnGrass(Product):
         self.country = country
         self.germination_period = germination_period
         self.color = color
+
+    def __add__(self, other):
+        """
+         Метод возвращает сумму произведений цены на количество у двух объектов класса LawnGrass
+         или TypeError(если объекты не LawnGrass класса).
+
+        :param other:Объект класса LawnGrass
+        :return: возвращает сумму произведений цены на количество у двух объектов или(TypeError)
+        """
+        if type(other) is LawnGrass:
+            return self.price * self.quantity + other.price * other.quantity
+        else:
+            raise TypeError
