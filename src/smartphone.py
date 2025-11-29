@@ -28,3 +28,16 @@ class Smartphone(Product):
         self.model = model
         self.memory = memory
         self.color = color
+
+    def __add__(self, other):
+        """
+         Метод возвращает сумму произведений цены на количество у двух объектов класса Smartphone
+         или TypeError(если объекты не Smartphone класса).
+
+        :param other:Объект класса Smartphone
+        :return: возвращает сумму произведений цены на количество у двух объектов или(TypeError)
+        """
+        if type(other) is Smartphone:
+            return self.price * self.quantity + other.price * other.quantity
+        else:
+            raise TypeError
