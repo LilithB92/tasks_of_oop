@@ -36,3 +36,7 @@ def test_invalid_negative_price(capsys, product):
     product.price = -12
     captured = capsys.readouterr()
     assert captured.out == "«Цена не должна быть нулевая или отрицательная»\n"
+
+
+def test_product_add(product, other_product_for_add) -> None:
+    assert product + other_product_for_add == 2114000.0
