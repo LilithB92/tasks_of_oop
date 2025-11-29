@@ -29,15 +29,18 @@ class Category:
         products_count = sum([product.quantity for product in self.__products])
         return f"{self.name}, количество продуктов: {products_count} шт.\n"
 
-    def add_product(self, product: Product) -> None:
+    def add_product(self, product) -> None:
         """
         Метод добавляет продукт в атрибут products
         и увеличивает «счетчик продуктов» (атрибут product_count) на 1
         :param product: экземпляра класса Product
         :return: не возвращает значения
         """
-        self.__products.append(product)
-        self.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            self.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products(self):
