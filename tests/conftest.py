@@ -5,6 +5,7 @@ import pytest
 from src.category import Category
 from src.product import Product
 from src.product_iterator import ProductIterator
+from src.smartphone import Smartphone
 
 
 @pytest.fixture
@@ -75,3 +76,15 @@ def mock_input_data():
 @pytest.fixture
 def product_iterator(first_category):
     return ProductIterator(first_category)
+
+
+@pytest.fixture
+def smartphone1() -> object:
+    return Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
+
+
+@pytest.fixture
+def smartphone2() -> object:
+    return Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
