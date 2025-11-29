@@ -3,7 +3,7 @@ from src.product import Product
 
 class Category:
     """
-    Класс для представления категории электротоваров
+    Класс для представления категории электро товаров
     """
 
     name: str
@@ -19,6 +19,15 @@ class Category:
         self.__products = products if products else []
         self.product_count += len(self.__products) if products else 0
         Category.category_count += 1
+
+    def __str__(self):
+        """
+        Метод рассчитывает общее количество товаров на складе (quantity) для каждого продукта
+        в приватном атрибуте products и возвращает строку: Название категории, количество продуктов: X шт.
+        :return: Строку: Название категории, количество продуктов: X шт.
+        """
+        products_count = sum([product.quantity for product in self.__products])
+        return f"{self.name}, количество продуктов: {products_count} шт.\n"
 
     def add_product(self, product: Product) -> None:
         """
@@ -38,5 +47,13 @@ class Category:
         """
         products_str = ""
         for product in self.__products:
-            products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            products_str += product.__str__()
         return products_str
+
+    @property
+    def product(self):
+        """
+        Метод возвращает список продуктов
+        :return: Список продуктов
+        """
+        return self.__products
