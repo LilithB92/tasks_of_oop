@@ -3,6 +3,7 @@ from unittest.mock import patch
 import pytest
 
 from src.category import Category
+from src.lawn_grass import LawnGrass
 from src.product import Product
 from src.product_iterator import ProductIterator
 from src.smartphone import Smartphone
@@ -88,3 +89,13 @@ def smartphone1() -> object:
 @pytest.fixture
 def smartphone2() -> object:
     return Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
+
+
+@pytest.fixture
+def grass1() -> object:
+    return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+
+
+@pytest.fixture
+def grass2() -> object:
+    return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
