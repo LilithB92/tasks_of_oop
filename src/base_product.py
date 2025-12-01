@@ -5,5 +5,5 @@ class BaseProduct(ABC):
 
     @classmethod
     @abstractmethod
-    def add_product(cls, *args, **kwargs):
+    def new_product(cls, *args, **kwargs):
         pass

@@ -1,4 +1,9 @@
-class Product:
+from abc import ABC
+
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+class Product(BaseProduct, ABC, PrintMixin):
     """
     Класс для представления продукты электро товаров
     """
@@ -18,6 +23,7 @@ class Product:
         self.quantity = quantity
         Product.products_list.append(self)
         Product.products_name_list.append(name)
+        super().__init__()
 
     def __str__(self):
         """
