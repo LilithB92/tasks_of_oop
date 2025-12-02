@@ -1,7 +1,8 @@
+from src.base_item import BaseItem
 from src.product import Product
 
 
-class Category:
+class Category(BaseItem):
     """
     Класс для представления категории электро товаров
     """
@@ -19,6 +20,13 @@ class Category:
         self.__products = products if products else []
         self.product_count += len(self.__products) if products else 0
         Category.category_count += 1
+
+    def get_info(self) -> str:
+        """
+        Метод возвращает строку с информации о категории товара
+        :return: строку с информации о категории товара
+        """
+        return f"Категория: {self.name}"
 
     def __str__(self):
         """
