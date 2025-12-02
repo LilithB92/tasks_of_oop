@@ -4,8 +4,9 @@ class Order:
     """
 
     name: str
-    price: float
     quantity: int
+    price: int
+    total_price: float
 
     def __init__(self, name, price, quantity):
         """
@@ -15,5 +16,14 @@ class Order:
         :param quantity: количество заказанного товара
         """
         self.name = name
-        self.price = price
         self.quantity = quantity
+        self.price = price
+        self.total_price = price * quantity
+
+    def get_info(self) -> str:
+        """
+        Метод возвращает строку с информациям о заказе: имя, количество и итоговая сумма.
+        :return: Строку с информациям о заказе: имя, количество и итоговая сумма.
+        """
+        return (f"Заказ: {self.name} x {self.quantity}, "
+                f"Итоговая стоимость: {self.total_price}")
