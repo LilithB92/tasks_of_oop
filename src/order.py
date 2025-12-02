@@ -18,12 +18,12 @@ class Order:
         self.name = name
         self.quantity = quantity
         self.price = price
-        self.total_price = price * quantity
+        Order.total_price = price * quantity
 
     def get_info(self) -> str:
         """
         Метод возвращает строку с информациям о заказе: имя, количество и итоговая сумма.
-        :return: Строку с информациям о заказе: имя, количество и итоговая сумма.
+        :return: Строку с информациям о заказе: имя, количество и итоговая сумма
         """
         return (f"Заказ: {self.name} x {self.quantity}, "
-                f"Итоговая стоимость: {self.total_price}")
+                f"Итоговая стоимость: {Order.total_price}")
