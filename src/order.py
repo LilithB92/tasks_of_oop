@@ -1,4 +1,7 @@
-class Order:
+from src.base_item import BaseItem
+
+
+class Order(BaseItem):
     """
     Класс для представления купленный товар, количество купленного товара, а также итоговая стоимость.
     """
@@ -25,5 +28,4 @@ class Order:
         Метод возвращает строку с информациям о заказе: имя, количество и итоговая сумма.
         :return: Строку с информациям о заказе: имя, количество и итоговая сумма
         """
-        return (f"Заказ: {self.name} x {self.quantity}, "
-                f"Итоговая стоимость: {Order.total_price}")
+        return f"Заказ: {self.name} x {self.quantity}, " f"Итоговая стоимость: {Order.total_price}"
