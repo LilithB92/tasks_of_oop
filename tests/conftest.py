@@ -103,5 +103,5 @@ def grass2() -> object:
 
 
 @pytest.fixture
-def order()-> object:
+def order() -> object:
     return Order(name="Xiaomi Redmi Note 11", price=31000.0, quantity=14)
