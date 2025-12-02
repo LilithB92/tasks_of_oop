@@ -4,6 +4,7 @@ import pytest
 
 from src.category import Category
 from src.lawn_grass import LawnGrass
+from src.order import Order
 from src.product import Product
 from src.product_iterator import ProductIterator
 from src.smartphone import Smartphone
@@ -99,3 +100,8 @@ def grass1() -> object:
 @pytest.fixture
 def grass2() -> object:
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+
+
+@pytest.fixture
+def order()-> object:
+    return Order(name="Xiaomi Redmi Note 11", price=31000.0, quantity=14)
