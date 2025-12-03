@@ -4,7 +4,7 @@ from src.base_product import BaseProduct
 from src.print_mixin import PrintMixin
 
 
-class Product(BaseProduct, ABC, PrintMixin):
+class Product(BaseProduct, PrintMixin):
     """
     Класс для представления продукты электро товаров
     """
