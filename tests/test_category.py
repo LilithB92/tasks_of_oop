@@ -1,5 +1,8 @@
 import pytest
 
+from src.category import Category
+from src.product import Product
+
 
 def test_category_init(first_category, second_category):
     assert first_category.name == "Смартфоны"
@@ -27,3 +30,13 @@ def test_add_product_in_category_error(second_category: object) -> None:
 
 def test_category_str(first_category) -> None:
     assert str(first_category) == "Смартфоны, количество продуктов: 27 шт.\n"
+
+
+def test_get_info() -> None:
+    category = Category(
+        name="Телевизоры",
+        description="Современный телевизор, который позволяет наслаждаться просмотром,"
+        " станет вашим другом и помощником",
+        products=[Product(name='55" QLED 4K', description="Фоновая подсветка", price=123000.0, quantity=7)],
+    )
+    assert category.get_info() == "Категория: Телевизоры"
