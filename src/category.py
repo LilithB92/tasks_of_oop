@@ -68,3 +68,16 @@ class Category(BaseItem):
         :return: Список продуктов
         """
         return self.__products
+
+    def middle_price(self):
+        """
+        Метод подсчитывает средний ценник всех товаров. Вызываем исключений(ZeroDivisionError), когда в категории нет
+        товаров и возвращает ноль.
+        :return: Средний ценник всех товаров или 0
+        """
+        try:
+            middle_price = sum(product.price for product in self.__products) / len(self.__products)
+            return round(middle_price, 2)
+        except ZeroDivisionError:
+            return 0
+

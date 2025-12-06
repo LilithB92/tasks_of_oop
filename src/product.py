@@ -1,5 +1,3 @@
-from abc import ABC
-
 from src.base_product import BaseProduct
 from src.print_mixin import PrintMixin
 
@@ -27,7 +25,7 @@ class Product(BaseProduct, PrintMixin):
             Product.products_name_list.append(name)
             super().__init__()
         else:
-            raise ValueError('Товар с нулевым количеством не может быть добавлен')
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
 
     def __str__(self):
         """
