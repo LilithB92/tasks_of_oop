@@ -40,3 +40,8 @@ def test_invalid_negative_price(capsys, product):
 
 def test_product_add(product, other_product_for_add) -> None:
     assert product + other_product_for_add == 2114000.0
+
+
+def test_product_with_negative_quantity() -> None:
+    with pytest.raises(ValueError):
+        Product(name="Xiaomi Redmi Note 11", description="1024GB, Синий", price=31000.0, quantity= -76)
