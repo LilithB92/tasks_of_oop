@@ -1,4 +1,5 @@
 from src.base_item import BaseItem
+from src.exceptions import ZeroQuantityError
 from src.product import Product
 
 
@@ -18,8 +19,17 @@ class Category(BaseItem):
         self.name = name
         self.description = description
         self.__products = products if products else []
-        self.product_count += len(self.__products) if products else 0
-        Category.category_count += 1
+        try:
+            if len(self.__products) == 0:
+                raise ZeroQuantityError("Нельзя добавить категория без товара")
+        except ZeroQuantityError as e:
+            print(str(e))
+        else:
+            self.product_count += len(self.__products) if products else 0
+            Category.category_count += 1
+            print("Категория добавлена.")
+        finally:
+            print("Обработка добавления товара завершена.")
 
     def get_info(self) -> str:
         """
