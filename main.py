@@ -1,5 +1,6 @@
 from src.category import Category
 from src.lawn_grass import LawnGrass
+from src.order import Order
 from src.product import Product
 from src.smartphone import Smartphone
 
@@ -22,3 +23,5 @@ if __name__ == '__main__':
 
     category_empty = Category("Пустая категория", "Категория без продуктов", [])
     print(category_empty.middle_price())
+
+    Order(name="Xiaomi Redmi Note 11", price=31000.0, quantity=0)

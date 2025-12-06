@@ -80,4 +80,3 @@ class Category(BaseItem):
             return round(middle_price, 2)
         except ZeroDivisionError:
             return 0
-

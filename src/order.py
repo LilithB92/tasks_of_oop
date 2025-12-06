@@ -1,4 +1,5 @@
 from src.base_item import BaseItem
+from src.exceptions import ZeroQuantityError
 
 
 class Order(BaseItem):
@@ -19,9 +20,18 @@ class Order(BaseItem):
         :param quantity: количество заказанного товара
         """
         self.name = name
-        self.quantity = quantity
         self.price = price
-        Order.total_price = price * quantity
+        try:
+            if quantity <= 0:
+                raise ZeroQuantityError("Нельзя заказать товаров не положительном количестве")
+        except ZeroQuantityError as e:
+            print(str(e))
+        else:
+            self.quantity = quantity
+            Order.total_price = price * quantity
+            print("Товар добавлен.")
+        finally:
+            print("Обработка добавления товара завершена.")
 
     def get_info(self) -> str:
         """
