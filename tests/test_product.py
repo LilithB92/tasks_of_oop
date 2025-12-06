@@ -44,4 +44,4 @@ def test_product_add(product, other_product_for_add) -> None:
 
 def test_product_with_negative_quantity() -> None:
     with pytest.raises(ValueError):
-        Product(name="Xiaomi Redmi Note 11", description="1024GB, Синий", price=31000.0, quantity= -76)
+        Product(name="Xiaomi Redmi Note 11", description="1024GB, Синий", price=31000.0, quantity=-76)

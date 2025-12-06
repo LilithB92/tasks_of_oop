@@ -1,7 +1,6 @@
 import pytest
 
 from src.category import Category
-from src.exceptions import ZeroQuantityError
 from src.product import Product
 
 
@@ -43,12 +42,10 @@ def test_get_info() -> None:
     assert category.get_info() == "Категория: Телевизоры"
 
 
-def test_middle_price(first_category: object)->None:
+def test_middle_price(first_category: object) -> None:
     assert first_category.middle_price() == 140333.33
+
 
 def test_middle_price_without_products():
     category_empty = Category("Пустая категория", "Категория без продуктов", [])
     assert category_empty.middle_price() == 0
-
-
-
