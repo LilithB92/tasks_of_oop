@@ -1,5 +1,3 @@
-from abc import ABC
-
 from src.base_product import BaseProduct
 from src.print_mixin import PrintMixin
 
@@ -21,10 +19,13 @@ class Product(BaseProduct, PrintMixin):
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
-        Product.products_list.append(self)
-        Product.products_name_list.append(name)
-        super().__init__()
+        if quantity > 0:
+            self.quantity = quantity
+            Product.products_list.append(self)
+            Product.products_name_list.append(name)
+            super().__init__()
+        else:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
 
     def __str__(self):
         """
